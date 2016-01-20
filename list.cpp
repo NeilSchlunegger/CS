@@ -51,21 +51,5 @@ int removeTwo(node*& head)
 	{
 		return removeTwo(head->next);
 	}
-	/*DOESNT REMOVE COMPLETELY
-	node* next;
-
-	if(head == NULL)
-	{
-		return 0;
-	}
-	else if(head->data == 2)
-	{
-		next = head->next;
-		delete head;
-		return 1 + removeTwo(next);
-	}
-	else
-	{
-		return removeTwo(head->next);
-	}*/
+	
 }
