@@ -1,0 +1,78 @@
+void duplicate(node* head, node*& newHead)
+{
+	if (head == NULL)
+	{
+		newHead = NULL;
+		return;
+	}
+	
+	newHead = new node;
+	newHead->data = head->data;
+	duplicate(head->next, newHead->next);
+}
+
+int removeTwo(node*& head)
+{
+	node* curr = head;
+	node* prev = NULL;
+
+	if(curr == NULL)
+	{
+		return 0;
+	}
+	else if(curr->data == 2)
+	{
+		if(curr == head)
+		{
+			node* currPtr = head;
+			head = head->next;
+			delete currPtr;
+			currPtr = head;
+			return 1 + removeTwo(head);
+		}
+		else if(curr->next == NULL)
+		{
+			delete curr;
+			curr = NULL;
+			prev->next = NULL;
+			return 1;
+		}
+		else
+		{
+			prev->next = curr->next;
+			delete curr;
+			curr = prev->next;
+			return 1 + removeTwo(curr);
+		}
+	}
+	else
+	{
+		return removeTwo(head->next);
+	}
+}
+
+Here is the original list: 2 -> 53 -> 2 -> 10 -> 1 -> 38 -> 56 -> 28 -> 2
+
+This list contains 9 number of items 
+
+***************************************************
+******************Duplicating list**************************
+******************************************************************
+Displaying duplicate list: 
+
+The resulting list is... 2 -> 53 -> 2 -> 10 -> 1 -> 38 -> 56 -> 28 -> 2
+
+This list contains 9 number of items 
+The sum of all data is: 192
+
+******************************************************************
+******************End of duplicating list********************
+***************************************************
+
+******************Removing 2s*******************************
+After removing 3 twos:
+
+The resulting list is... 53 -> 10 -> 1 -> 38 -> 56 -> 28
+
+This list contains 6 number of items 
+The sum of all data is: 186
