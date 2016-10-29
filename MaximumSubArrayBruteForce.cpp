@@ -50,7 +50,6 @@ int main()
     {
         array[i] = rand() % 10 + (-3);
     }
-    //int array[8] = {-6,-1,6,-1,-4,1,5,-3};
     size_t arraySize = sizeof(array)/sizeof(array[0]);
     printArray(array,arraySize);
     cout << endl;
